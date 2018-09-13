@@ -1,17 +1,9 @@
-# SORRY, IN ORDER TO PROTECT THE PROJECT'S COPYRIGHT, IT WILL BE KEPT "PRIVATE" UNTIL AN OFFICIAL RELEASE
-
+<p align="left" style="font-size:160%;color:red;">
+   # SORRY, IN ORDER TO PROTECT THE PROJECT'S COPYRIGHT, IT WILL BE KEPT "PRIVATE" UNTIL AN OFFICIAL RELEASE
+</p>
 
 <p align="left">
 <img width="100" height="20" src="https://travis-ci.org/mitxael/graph-suite.svg?branch=master">
-</p>
-<p align="left">
-<img width="640" height="400" src="https://github.com/mitxael/graph-library/blob/master/graph-main.png">
-</p>
-<p align="left">
-<img width="640" height="400" src="https://github.com/mitxael/graph-library/blob/master/graph-view.png">
-</p>    
-<p align="left">
-<img width="800" height="400" src="https://github.com/mitxael/graph-suite/blob/master/graph-benchmark.png">
 </p>
 
     ***************************************************************************************
