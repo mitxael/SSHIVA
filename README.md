@@ -12,7 +12,7 @@
     * Uses:       This software has been developed using:
     *              - MVSC 14.1 (library back-end)
     *              - C++/CLI (interface wrapper)
-    *              - JAVA/JNI (interface integrator)    
+    *              - JAVA/JNI (external libraries interface)    
     *              - WPF (user front-end)
     * Author:     Michael Vasquez Otazu
     * Email:      mitxael@hotmail.it
