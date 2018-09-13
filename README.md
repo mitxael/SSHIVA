@@ -1,8 +1,8 @@
 <p align="left" style="font-size:160%;color:red;">
-   $$$$ THIS PROJECT HAS BEEN TEMPORARILY REMOVED IN ORDER TO PROTECT ITS COPYRIGHT,
-    IT WILL BE KEPT "PRIVATE" UNTIL AN OFFICIAL RELEASE. $$$
+   $$$$ THIS PROJECT HAS BEEN TEMPORARILY REMOVED IN ORDER TO PROTECT ITS COPYRIGHT $$$$<br>
+   $$$$ IT WILL BE KEPT "PRIVATE" UNTIL AN OFFICIAL RELEASE. $$$$
 </p>
-
+<font color="red">Questo renderà il tuo testo rosso.</font>
 <p align="left">
 <img width="100" height="20" src="https://travis-ci.org/mitxael/graph-suite.svg?branch=master">
 </p>
