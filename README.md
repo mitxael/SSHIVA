@@ -8,7 +8,7 @@
 </p>
 
     ***************************************************************************************
-    * Abstract:   C++ Tool for the Analysis of Persistent Homology on Undirected Weighted Grap
+    * Abstract:   C++ Tool for the Analysis of Persistent Homology on Undirected Weighted Graphs
     * Uses:       This software has been developed using:
     *              - MVSC 14.1 (library back-end)
     *              - C++/CLI (interface wrapper)
