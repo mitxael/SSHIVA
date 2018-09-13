@@ -13,7 +13,7 @@
     *              - MVSC 14.1 (library back-end)
     *              - C++/CLI (interface wrapper)
     *              - JAVA/JNI (external libraries interface)    
-    *              - WPF (user front-end)
+    *              - WPF/C# (user front-end)
     * Author:     Michael Vasquez Otazu
     * Email:      mitxael@hotmail.it
     * Demo:       https://www.youtube.com/watch?v=NY8xB3WwQDA
