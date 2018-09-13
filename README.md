@@ -1,30 +1,45 @@
 <p align="left" style="font-size:160%;color:red;">
-   $$$$ THIS PROJECT HAS BEEN TEMPORARILY REMOVED IN ORDER TO PROTECT ITS COPYRIGHT $$$$<br>
-   $$$$ IT WILL BE KEPT "PRIVATE" UNTIL AN OFFICIAL RELEASE. $$$$
+   $$$$ THIS PROJECT HAS BEEN TEMPORARILY REMOVED IN ORDER TO PROTECT ITS LEGITIMATE COPYRIGHT $$$$<br>
+   $$$$ IT WILL BE KEPT "PRIVATE" UNTIL AN OFFICIAL RELEASE. I APOLOGIZE FOR THE INCONVENIENCE $$$$
 </p>
-<font color="red">Questo renderà il tuo testo rosso.</font>
+
 <p align="left">
 <img width="100" height="20" src="https://travis-ci.org/mitxael/graph-suite.svg?branch=master">
 </p>
 
     ***************************************************************************************
-    * Abstract:   Collection of graph algorithms for Minimal cycles basis and Maximal cliques
+    * Abstract:   C++ Tool for the Analysis of Persistent Homology on Undirected Weighted Grap
     * Uses:       This software has been developed using:
     *              - MVSC 14.1 (library back-end)
     *              - C++/CLI (interface wrapper)
+    *              - JAVA/JNI (interface integrator)    
     *              - WPF (user front-end)
     * Author:     Michael Vasquez Otazu
     * Email:      mitxael@hotmail.it
     * Demo:       https://www.youtube.com/watch?v=NY8xB3WwQDA
     * History:    
-    *             V2.0 - Second release
+    *             V2.1
+    *             - Selection of maximum dimension to be computed in PH
+    *             V2.0
+    *             - Added Persistent Homology computation
+    *             - Integration of Javaplex software library
+    *             - Integration of Gudhi software library
+    *             - Graphical plot of graph with Cycles, Cliques and PH Filtrations
+    *             - Display of graph’s main information (density, components, degeneracy, etc.)
+    *             - Filtrations based on Graph complex and CWRF complex
+    *             - Step-by-step view of the PH computation process (useful for educational purposes)
+    *             - Visualization of Betti barcodes and Persistence diagrams
+    *             - Calculation of the Bottleneck distance for barcodes
+    *             - Calculation of Persistent Entropy and Normalized Entropy for barcodes
+    *             - Calculation of the Euler characteristic from barcodes
+    *             V1.1
     *             - Criccaldi alg. for Maximal cliques from Amaldi's mcb. O(m^{2} n / log n)
     *             - Bron-Kerbosch (naive) alg. for All Maximal Cliques. O(3^{n/3})
     *             - Bron-Kerbosch (tomita) alg. for All Maximal Cliques.  O(3^{n/3})
     *             - Bron-Kerbosch (eppstein) alg. for All Maximal Cliques. O(d n 3^{d/3})
     *             - Multi-threaded Benchmark for cycle/clique algorithms for a set of graphs (with .csv report)
     *             - Graph plotting with cycles/cliques visualization and selection
-    *             V1.0 - First release
+    *             V1.0
     *             - Support for weighted and undirected graphs
     *             - Horton alg. for Minimum Cycle Basis. O(m^3 n)
     *               (many optional improvements such as Tiernan order, Isometric cycles, etc.)
