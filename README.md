@@ -1,5 +1,5 @@
 <p align="left">
-<img width="100" height="20" src="https://travis-ci.org/mitxael/graph-suite.svg?branch=master">
+<img width="100" height="20" src="https://travis-ci.org/mitxael/CHoleR.svg?branch=master">
 </p>
 <p align="left">
 <img width="640" height="400" src="https://github.com/mitxael/CHoleR/blob/master/graph-main.png">
