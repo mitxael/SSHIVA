@@ -2,13 +2,13 @@
 <img width="100" height="20" src="https://travis-ci.org/mitxael/graph-suite.svg?branch=master">
 </p>
 <p align="left">
-<img width="640" height="400" src="https://github.com/mitxael/CHoleR/graph-main.png">
+<img width="640" height="400" src="https://github.com/mitxael/CHoleR/blob/master/graph-main.png">
 </p>
 <p align="left">
-<img width="640" height="400" src="https://github.com/mitxael/CHoleR/graph-view.png">
+<img width="640" height="400" src="https://github.com/mitxael/CHoleR/blob/master/graph-view.png">
 </p>    
 <p align="left">
-<img width="800" height="400" src="https://github.com/mitxael/CHoleR/graph-benchmark.png">
+<img width="800" height="400" src="https://github.com/mitxael/CHoleR/blob/master/graph-benchmark.png">
 </p>
 
     ***************************************************************************************
