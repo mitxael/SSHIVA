@@ -1,0 +1,240 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:graphsharp="clr-namespace:GraphSharp;assembly=GraphSharp"
+                    xmlns:controls="clr-namespace:GraphSharp.Controls;assembly=GraphSharp.Controls"
+                    xmlns:zoom="clr-namespace:GraphSharp.Controls.Zoom;assembly=GraphSharp.Controls"
+                    xmlns:helpers="clr-namespace:GraphSharp.Helpers;assembly=GraphSharp.Controls"
+                    xmlns:converters="clr-namespace:GraphSharp.Converters;assembly=GraphSharp.Controls"
+                    xmlns:local="clr-namespace:CHoleR"
+                    xmlns:attachedBehaviours="clr-namespace:GraphSharp.AttachedBehaviours;assembly=GraphSharp.Controls"
+                    x:Class="CHoleR.Design.Vertices"
+                    x:ClassModifier="public">
+
+    <!-- ********************  VERTEX HIGHLIGHT ******************** <START> ******************** -->
+    <SolidColorBrush x:Key="HighlightedVertexBorderBrush" Color="Transparent" />
+    <!--CHANGED TO SET A VARIABLE HIGHLIGHTED VERTEX COLOR-->
+    <SolidColorBrush x:Key="HighlightedVertexBackgroundBrush" Color="{DynamicResource VertexHighlighted}" />
+    <SolidColorBrush x:Key="HighlightedVertexForegroundBrush" Color="{DynamicResource {x:Static SystemColors.ControlLightLightColorKey}}" />
+    <SolidColorBrush x:Key="SemiHighlightedSourceVertexBorderBrush" Color="Transparent" />
+    <!--CHANGED TO DISPLAY IN AND OUT EDGES THE SAME COLOR-->
+    <!--<SolidColorBrush x:Key="SemiHighlightedSourceVertexBackgroundBrush" Color="#FF1DBA00" />-->
+    <SolidColorBrush x:Key="SemiHighlightedSourceVertexBackgroundBrush" Color="#FFD6A51C" />
+    <SolidColorBrush x:Key="SemiHighlightedTargetVertexBorderBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="SemiHighlightedTargetVertexBackgroundBrush" Color="#FFD6A51C" />
+    <!-- ********************  VERTEX HIGHLIGHT ******************** <END> ******************** -->
+
+
+    <!-- ********************  VERTEX CONTROLS ******************** <START> ******************** -->
+    
+    <local:VertexColorConverter x:Key="VertexColorConverter"/>
+
+    <Style TargetType="{x:Type controls:VertexControl}">
+
+        <EventSetter Event="MouseDoubleClick" Handler="ChangeVertexColor_OnClick"/>
+
+        <Setter Property="ContextMenu">
+            <Setter.Value>
+                <ContextMenu>
+                    <MenuItem Tag="1" Header="Highlight cycles" CommandParameter="{x:Static local:MainWindow.ClipProperty}"/>
+                    <MenuItem Tag="2" Header="Highlight cliques" CommandParameter="{x:Static local:MainWindow.ClipProperty}"/>
+                    <MenuItem Tag="3" Header="Hide vertex" CommandParameter="{x:Static local:MainWindow.ClipProperty}">
+                    <!--<MenuItem.Icon> <Image Source="/del.png" /> </MenuItem.Icon>-->
+                    </MenuItem>
+                    <ContextMenu.ItemContainerStyle>
+                        <Style TargetType="MenuItem">
+                            <EventSetter Event="Click" Handler="ContextualMenu"/>
+                        </Style>
+                    </ContextMenu.ItemContainerStyle>
+                </ContextMenu>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:VertexControl}">
+                    <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="10,10,10,10"
+                                    Padding="{TemplateBinding Padding}">
+                        <ContentPresenter Content="{TemplateBinding Vertex}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="controls:GraphElementBehaviour.HighlightTrigger" Value="{Binding Path=IsMouseOver, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="attachedBehaviours:DragBehaviour.IsDragEnabled" Value="True"/>
+        <Setter Property="attachedBehaviours:DragBehaviour.X" Value="{Binding Path=(controls:GraphCanvas.X), Mode=TwoWay, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="attachedBehaviours:DragBehaviour.Y" Value="{Binding Path=(controls:GraphCanvas.Y), Mode=TwoWay, RelativeSource={RelativeSource Self}}"/>
+        <!--VERTEX COLORS-->
+        <!--<Setter Property="Background" Value="#0764a9"/>-->
+        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Self}, Path=Vertex.Color, Converter={StaticResource VertexColorConverter}, Mode=OneWay}"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="BorderThickness" Value="0.7,0.7,0.7,0.7"/>
+        <Setter Property="Padding" Value="3,1.5,3,1.5"/>
+        <Setter Property="BorderBrush" Value="#FFFFFF"/>
+        <Style.Triggers>
+            <Trigger Property="controls:GraphElementBehaviour.IsHighlighted" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource HighlightedVertexBorderBrush}"/>
+                <Setter Property="Background" Value="{StaticResource HighlightedVertexBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource HighlightedVertexForegroundBrush}"/>
+            </Trigger>
+            <Trigger Property="controls:GraphElementBehaviour.IsSemiHighlighted" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource HighlightedVertexBorderBrush}"/>
+                <Setter Property="Background" Value="{StaticResource HighlightedVertexBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource HighlightedVertexForegroundBrush}"/>
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="controls:GraphElementBehaviour.IsSemiHighlighted" Value="True"/>
+                    <Condition Property="controls:GraphElementBehaviour.SemiHighlightInfo" Value="Source"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="BorderBrush" Value="{StaticResource SemiHighlightedSourceVertexBorderBrush}"/>
+                <Setter Property="Background" Value="{StaticResource SemiHighlightedSourceVertexBackgroundBrush}"/>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="controls:GraphElementBehaviour.IsSemiHighlighted" Value="True"/>
+                    <Condition Property="controls:GraphElementBehaviour.SemiHighlightInfo" Value="Target"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="BorderBrush" Value="{StaticResource SemiHighlightedTargetVertexBorderBrush}"/>
+                <Setter Property="Background" Value="{StaticResource SemiHighlightedTargetVertexBackgroundBrush}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+    <!-- ********************  VERTEX CONTROLS ******************** <END> ******************** -->
+
+    <!-- ********************  COMPOUND VERTEX CONTROLS ******************** <START> ******************** -->
+    <Style TargetType="{x:Type controls:CompoundVertexControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:CompoundVertexControl}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            Padding="10">
+                        <GroupBox>
+                            <GroupBox.Header>
+                                adfajkdsfklad
+                            </GroupBox.Header>
+
+                            <ItemsControl x:Name="PART_InnerCanvas"
+                                          ItemsSource="{TemplateBinding Vertices}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Vertical" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </GroupBox>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="controls:GraphElementBehaviour.HighlightTrigger"
+                Value="{Binding RelativeSource={RelativeSource Self},Path=IsMouseOver}" />
+        <Setter Property="attachedBehaviours:DragBehaviour.IsDragEnabled"
+                Value="True" />
+        <Setter Property="attachedBehaviours:DragBehaviour.X"
+                Value="{Binding RelativeSource={RelativeSource Self},Path=(controls:GraphCanvas.X),Mode=TwoWay}" />
+        <Setter Property="attachedBehaviours:DragBehaviour.Y"
+                Value="{Binding RelativeSource={RelativeSource Self},Path=(controls:GraphCanvas.Y),Mode=TwoWay}" />
+        <Setter Property="BorderThickness"
+                Value="22" />
+        <Setter Property="BorderBrush"
+                Value="Silver" />
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0"
+                                     EndPoint="1,1">
+                    <GradientStop Color="White"
+                                  Offset="0" />
+                    <GradientStop Color="BurlyWood"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="LayoutMode"
+                     Value="Automatic">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type controls:CompoundVertexControl}">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}"
+                                    Padding="10">
+                                <GroupBox>
+                                    <GroupBox.Header>
+                                        wdawew
+                                    </GroupBox.Header>
+
+                                    <ItemsControl x:Name="PART_InnerCanvas"
+                                                  ItemsSource="{TemplateBinding Vertices}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <controls:GraphCanvas Background="White"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                    </ItemsControl>
+                                </GroupBox>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0,0"
+                                             EndPoint="1,1">
+                            <GradientStop Color="White"
+                                          Offset="0" />
+                            <GradientStop Color="Silver"
+                                          Offset="1" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="controls:GraphElementBehaviour.IsHighlighted"
+                     Value="True">
+                <Setter Property="BorderBrush"
+                        Value="Orange" />
+                <Setter Property="BorderThickness"
+                        Value="2" />
+            </Trigger>
+            <Trigger Property="controls:GraphElementBehaviour.IsSemiHighlighted"
+                     Value="True">
+                <Setter Property="BorderBrush"
+                        Value="Yellow" />
+                <Setter Property="BorderThickness"
+                        Value="2" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="controls:GraphElementBehaviour.IsSemiHighlighted"
+                               Value="True" />
+                    <Condition Property="controls:GraphElementBehaviour.SemiHighlightInfo"
+                               Value="Source" />
+                </MultiTrigger.Conditions>
+                <Setter Property="BorderBrush"
+                        Value="Red" />
+                <Setter Property="BorderThickness"
+                        Value="2" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="controls:GraphElementBehaviour.IsSemiHighlighted"
+                               Value="True" />
+                    <Condition Property="controls:GraphElementBehaviour.SemiHighlightInfo"
+                               Value="Target" />
+                </MultiTrigger.Conditions>
+                <Setter Property="BorderBrush"
+                        Value="Blue" />
+                <Setter Property="BorderThickness"
+                        Value="2" />
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+    <!-- ********************  COMPOUND VERTEX CONTROLS ******************** <END> ******************** -->
+
+</ResourceDictionary>

@@ -1,0 +1,84 @@
+﻿<Window x:Class="CHoleR.Barcodes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHoleR"
+        mc:Ignorable="d"
+        x:Name="BarcodesWindow" Title="Betti numbers" Width="660" Height="300" Icon="{Binding Source={StaticResource AppIcon}}" ShowInTaskbar="False" Topmost="True"
+        Loaded="Window_Loaded" WindowStartupLocation="Manual" SizeChanged="BarcodesWindow_SizeChanged" Closing="BarcodesWindow_Closing">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF464646" Offset="0.222"/>
+                <GradientStop Color="#FFB4B4B4" Offset="0.996"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="69"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Name="lblZoom" Content="100%"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Grid.Row="0" Grid.Column="0"
+               Foreground="White"
+               FontSize="10" Height="22" Margin="14,8,21,0" Width="34"/>
+
+        <Slider Name="sliZoom" Orientation="Vertical"
+                ValueChanged="sliZoom_ValueChanged"
+                HorizontalAlignment="Center"
+                Margin="20,0,21,60"
+                Grid.Row="1" Grid.Column="0"
+                Minimum="100" Maximum="300" Value="100"
+                SmallChange="25" LargeChange="25"
+                TickFrequency="25" TickPlacement="BottomRight"
+                IsSnapToTickEnabled="True" Width="28"/>
+
+        <Button Name="BtnEntropy" Content="Entropy" Margin="4,0,0,10" Width="60" Grid.Row="1" Height="25" HorizontalAlignment ="Left" VerticalAlignment="Bottom"
+                FontWeight="Bold" Foreground="#FFD4D4D4" Click="BtnEntropy_Click" Opacity="0.7" FontFamily="Trebuchet MS" >
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF2B1340" Offset="1"/>
+                    <GradientStop Color="#FF643789" Offset="0.393"/>
+                </RadialGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.7"/>
+            </Button.Effect>
+        </Button>
+
+        <ScrollViewer Name="scvGraph"
+                      Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto">
+            <Canvas Name="canGraph" Background="White"
+                    Width="560" Height="250"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    PreviewMouseLeftButtonDown="Canvas_Click">
+                <!--MouseMove="Canvas_MouseMove">-->
+                <!--<Canvas.ToolTip>
+                    <ToolTip x:Name="CanvasToolTip" IsOpen="False" ToolTipService.IsEnabled="False">
+                        <StackPanel>
+                            <TextBlock Name="ToolTipTextBox"/>
+                        </StackPanel>
+                    </ToolTip>
+                </Canvas.ToolTip>-->
+
+                <TextBox x:Name ="BBTitle" Text="Betti barcodes at dimension:" Canvas.Left="71" RenderTransformOrigin="0.868,0.115" HorizontalContentAlignment="Right"
+                        BorderBrush ="Transparent" IsHitTestVisible="False" IsReadOnly="True" FontSize ="12"  FontStyle="Italic" FontWeight="ExtraBold" Foreground="DimGray" Canvas.Top="2" Width="237"/>
+                <ComboBox x:Name ="BBDimension" Canvas.Left="308" Width="37" HorizontalContentAlignment="Left" VerticalAlignment="Center"
+                          FontSize="10" FontStyle="Italic" FontWeight="ExtraBold" Foreground="DimGray" Height="20" SelectionChanged="BBDimension_SelectionChanged" Canvas.Top="1"/>
+
+            </Canvas>
+        </ScrollViewer>
+    </Grid>
+
+</Window>

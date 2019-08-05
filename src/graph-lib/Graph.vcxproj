@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="base\Graph.cpp" />
+    <ClCompile Include="base\LinearIndependence.cpp" />
+    <ClCompile Include="base\Utils.cpp" />
+    <ClCompile Include="cliques\BronKerbosch.cpp" />
+    <ClCompile Include="cliques\Criccaldi.cpp" />
+    <ClCompile Include="cliques\Dharwadker.cpp" />
+    <ClCompile Include="cycles\Amaldi.cpp" />
+    <ClCompile Include="cycles\DePina.cpp" />
+    <ClCompile Include="cycles\Horton.cpp" />
+    <ClCompile Include="cycles\Hybrid.cpp" />
+    <ClCompile Include="homology\Gudhi\Gudhi.cpp" />
+    <ClCompile Include="homology\Homology.cpp" />
+    <ClCompile Include="homology\Javaplex\Javaplex.cpp" />
+    <ClCompile Include="homology\PHAT\src\benchmark.cpp" />
+    <ClCompile Include="homology\PHAT\src\convert.cpp" />
+    <ClCompile Include="homology\PHAT\src\info.cpp" />
+    <ClCompile Include="homology\PHAT\src\phat.cpp" />
+    <ClCompile Include="homology\PHAT\src\self_test.cpp" />
+    <ClCompile Include="homology\PHAT\src\simple_example.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base\DataStructures.h" />
+    <ClInclude Include="base\Graph.h" />
+    <ClInclude Include="base\LinearIndependence.h" />
+    <ClInclude Include="base\Utils.h" />
+    <ClInclude Include="cliques\BronKerbosch.h" />
+    <ClInclude Include="cliques\Criccaldi.h" />
+    <ClInclude Include="cliques\Dharwadker.h" />
+    <ClInclude Include="cycles\Amaldi.h" />
+    <ClInclude Include="cycles\DePina.h" />
+    <ClInclude Include="cycles\Horton.h" />
+    <ClInclude Include="cycles\Hybrid.h" />
+    <ClInclude Include="homology\Gudhi\Gudhi.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Bottleneck.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\common_persistence_representations.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Debug_utils.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Graph_matching.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\graph_simplicial_complex.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Internal_point.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Neighbors_finder.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Persistence_graph.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Persistence_intervals.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Persistence_vectors.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Persistent_cohomology.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Persistent_cohomology\Field_Zp.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Persistent_cohomology\Persistent_cohomology_column.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\reader_utils.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\read_persistence_from_file.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Simplex_tree.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Simplex_tree\indexing_tag.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Simplex_tree\Simplex_tree_iterators.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Simplex_tree\Simplex_tree_node_explicit_storage.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Simplex_tree\Simplex_tree_siblings.h" />
+    <ClInclude Include="homology\Gudhi\include\gudhi\Simple_object_pool.h" />
+    <ClInclude Include="homology\Homology.h" />
+    <ClInclude Include="homology\Javaplex\Javaplex.h" />
+    <ClInclude Include="homology\PHAT\include\phat\algorithms\chunk_reduction.h" />
+    <ClInclude Include="homology\PHAT\include\phat\algorithms\row_reduction.h" />
+    <ClInclude Include="homology\PHAT\include\phat\algorithms\spectral_sequence_reduction.h" />
+    <ClInclude Include="homology\PHAT\include\phat\algorithms\standard_reduction.h" />
+    <ClInclude Include="homology\PHAT\include\phat\algorithms\twist_reduction.h" />
+    <ClInclude Include="homology\PHAT\include\phat\boundary_matrix.h" />
+    <ClInclude Include="homology\PHAT\include\phat\compute_persistence_pairs.h" />
+    <ClInclude Include="homology\PHAT\include\phat\helpers\dualize.h" />
+    <ClInclude Include="homology\PHAT\include\phat\helpers\misc.h" />
+    <ClInclude Include="homology\PHAT\include\phat\helpers\thread_local_storage.h" />
+    <ClInclude Include="homology\PHAT\include\phat\persistence_pairs.h" />
+    <ClInclude Include="homology\PHAT\include\phat\representations\abstract_pivot_column.h" />
+    <ClInclude Include="homology\PHAT\include\phat\representations\bit_tree_pivot_column.h" />
+    <ClInclude Include="homology\PHAT\include\phat\representations\full_pivot_column.h" />
+    <ClInclude Include="homology\PHAT\include\phat\representations\heap_pivot_column.h" />
+    <ClInclude Include="homology\PHAT\include\phat\representations\sparse_pivot_column.h" />
+    <ClInclude Include="homology\PHAT\include\phat\representations\vector_heap.h" />
+    <ClInclude Include="homology\PHAT\include\phat\representations\vector_list.h" />
+    <ClInclude Include="homology\PHAT\include\phat\representations\vector_set.h" />
+    <ClInclude Include="homology\PHAT\include\phat\representations\vector_vector.h" />
+    <ClInclude Include="homology\PHAT\Phat.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{42A20F1E-0BFC-4CE4-9049-949AC540820F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Graph</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <ProjectName>graphLIB</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <LanguageStandard>
+      </LanguageStandard>
+      <CompileAsManaged>false</CompileAsManaged>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>C:\dev\CGAL\include;C:\dev\boost\boost_1_67_0\;C:\Program Files (x86)\Microsoft SDKs\MPI\Include;C:\Program Files\Java\jdk-9.0.4\include;C:\Program Files\Java\jdk-9.0.4\include\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <OpenMPSupport>true</OpenMPSupport>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <FullProgramDatabaseFile>true</FullProgramDatabaseFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <CompileAsManaged>false</CompileAsManaged>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>
+      </LanguageStandard>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>C:\dev\CGAL\include;C:\dev\boost\boost_1_67_0\;C:\Program Files (x86)\Microsoft SDKs\MPI\Include;C:\Program Files\Java\jdk-9.0.4\include;C:\Program Files\Java\jdk-9.0.4\include\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OpenMPSupport>true</OpenMPSupport>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,151 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=System"
+                    xmlns:local="clr-namespace:CHoleR">
+
+    <Style x:Key="TitleLabel" TargetType="Label">
+        <Setter Property="Foreground" Value="Gray" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style x:Key="StandardLabel" TargetType="Label">
+        <Setter Property="Foreground" Value="Gray" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style x:Key="SmallLabel" TargetType="Label">
+        <Setter Property="Foreground" Value ="#2F5A74"/>
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontStyle" Value = "Italic" />
+        <Setter Property="FontWeight" Value = "SemiBold" />
+        <Setter Property="HorizontalAlignment" Value= "Center" />
+        <Setter Property="VerticalAlignment" Value ="Top" />
+    </Style>
+    <Style x:Key="CommentLabel" TargetType="Label">
+        <Setter Property="Foreground" Value ="DimGray"/>
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontStyle" Value = "Normal" />
+        <Setter Property="FontWeight" Value = "Normal" />
+        <Setter Property="HorizontalAlignment" Value= "Center" />
+        <Setter Property="VerticalAlignment" Value ="Top" />
+    </Style>
+    <Style x:Key="StandardTextBox" TargetType="TextBox">
+        <Setter Property="Foreground" Value ="#2F5A74"/>
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontStyle" Value = "Italic" />
+        <Setter Property="FontWeight" Value = "Normal" />
+        <Setter Property="HorizontalAlignment" Value= "Center" />
+        <Setter Property="VerticalAlignment" Value ="Top" />
+        <Setter Property="HorizontalContentAlignment" Value ="Right" />
+        <Setter Property="VerticalContentAlignment" Value ="Center" />
+        <Setter Property="Padding" Value = "0,0,5,0" />
+        <!--<Setter Property="Opacity" Value = "20" />-->
+    </Style>
+
+    <!-- Border shadow and rounded style -->
+    <Style x:Key="DropShadow" TargetType="Border">
+        <Setter Property="Background" Value="WhiteSmoke" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="BorderThickness" Value="1,1,4,4" />
+        <Setter Property="Margin" Value="8" />
+        <Setter Property="Padding" Value="6" />
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush>
+                    <GradientStop Color="#ccc" Offset="0" />
+                    <GradientStop Color="#ddd" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Text box styling -->
+    <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
+        <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" BorderBrush="Black"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+            <ScrollViewer x:Name="PART_ContentHost"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+            </Trigger>
+            <Trigger Property="Width" Value="Auto">
+                <Setter Property="MinWidth" Value="100"/>
+            </Trigger>
+            <Trigger Property="Height" Value="Auto">
+                <Setter Property="MinHeight" Value="20"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- Tab item blue and orange style -->
+    <Style x:Key="BlueAndOrange" TargetType="{x:Type TabItem}">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Grid Margin="0,0,-12,0">
+                        <Border Name="Border" Background="Transparent" BorderBrush="Transparent"
+                                    BorderThickness="1,1,1,1" CornerRadius="6,6,0,0" />
+                        <Path Name="Blablabla" Data="M0.5,3.5 C0.5,1.8431458 1.8431458,0.5 3.5,0.5 L46.5,0.5 C48.156854,0.5 75.082788,25.5 70.333333,25.5 65.583878,25.5 0.75000088,25.249498 0.5,25.583056 0.24999912,25.916615 0.5,10.944442 0.5,3.5 z" 
+              Fill="LightSkyBlue" HorizontalAlignment="Left" Height="26.089" Stretch="Fill" Stroke="White" 
+              VerticalAlignment="Bottom"  Width="110"/>
+                        <ContentPresenter x:Name="ContentSite" TextElement.Foreground="White" ContentSource="Header" VerticalAlignment="Center"
+                                              HorizontalAlignment="Center" Margin="0,0,18,0"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter TargetName="Border" Property="Background" Value="Orange" />
+                            <Setter Property="Panel.ZIndex" Value="100" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="false">
+                            <Setter TargetName="ContentSite" Property="TextElement.Foreground" Value="White"/>
+                            <Setter TargetName="Border" Property="Background" Value="Transparent"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Tab item blue style -->
+    <Style x:Key="Blue" TargetType="{x:Type TabItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Grid Name="tabItem">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="1" Name="tabItemStyle" Background="AliceBlue" BorderBrush="Transparent" BorderThickness="1,1,1,1" CornerRadius="0,0,10,10" SnapsToDevicePixels="True" Margin="0, 0, 5, 0">
+                            <ContentPresenter x:Name="ContentSite" TextBlock.Foreground="Black" TextBlock.FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" Margin="10,3,14,3">
+                            </ContentPresenter>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="tabItemStyle" Property="Background" Value="#93CAFA" />
+                            <Setter TargetName="ContentSite" Property="TextBlock.Foreground" Value="#29458e" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="False" />
+                                <Condition Property="IsMouseOver" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="tabItemStyle" Property="Background" Value="#6381be" />
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

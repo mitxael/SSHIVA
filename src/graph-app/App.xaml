@@ -1,0 +1,39 @@
+﻿<!--/// ***********************************************************
+///	File	: App.xaml
+///	About	: Main application's description file
+///	Author	: mitxael@hotmail.it
+/// License	: Copyright (C) 2018 Michael Vasquez Otazu, MIT License (MIT)
+/// ******************************************************************-->
+
+<Application x:Class="CHoleR.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CHoleR"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             StartupUri="MainWindow.xaml">
+
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <system:String x:Key="AppTitle">"Graph Algorithms"</system:String>
+            <system:String x:Key="AppDirectory">""</system:String>
+            <BitmapImage x:Key="AppIcon" UriSource="Resources/CHoleR.ico"/>
+            <BitmapImage x:Key="AppBackground" UriSource="Resources/background.png"/>
+            <BitmapImage x:Key="UnicamLogo" UriSource="Resources/Unicam.png"/>
+            <BitmapImage x:Key="DataScienceLogo" UriSource="Resources/BioShapeAndDataScienceLab.png"/>
+            <!--<Color x:Key="VertexNormal">#0764a9</Color>-->
+            <Color x:Key="VertexNormal">#454646</Color>
+            <Color x:Key="EdgeNormal">#696969</Color>
+            <Color x:Key="VertexHighlighted">#FF1DBA00</Color>
+            <Color x:Key="EdgeHighlighted">#FF1DBA00</Color>
+            <Color x:Key="GraphBackground">#0F0F0F</Color>
+            <Color x:Key="VertexLabel">#0F0F0F</Color>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Design\CoolOS.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>
